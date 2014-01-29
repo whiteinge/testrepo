@@ -57,12 +57,13 @@ def process_request(environ):
                     code = '401 UNAUTHORIZED'
                 else:
                     code = '200 OK'
-                resp = json.dumps({'success': event_fired})
+                resp = json.dumps({'success': event_fired, 'data': data})
 
-            return code, resp
     else:
         code = '405 METHOD NOT ALLOWED'
         resp = 'Method not allowed.'
+
+    return code, resp
 
 def application(environ, start_response):
     code, resp = process_request(environ)
