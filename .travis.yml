@@ -1,2 +1,4 @@
 language: python
 script: python -m unittest tests
+after_success:
+    - curl -sS http://localhost:8001 -H "Content-type: application/json" -d "{\"branch\": \"${TRAVIS_BRANCH}\", \"commit\": \"${TRAVIS_COMMIT}\", \"mysecret\": \"8H8#i*rsS)P1PUFomQAa\"}"
