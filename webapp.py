@@ -6,7 +6,7 @@ from wsgiref.simple_server import make_server
 
 def application(environ, start_response):
     start_response('200 OK', [('Content-Type', 'application/json')])
-    return ('Hello, World!',)
+    return ('Hello, World.',)
 
 def start():
     httpd = make_server('localhost', 8000, application)
