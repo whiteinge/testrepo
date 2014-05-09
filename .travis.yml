@@ -1,4 +1,4 @@
 language: python
 script: python -m unittest tests
 after_success:
-    - 'curl -sS http://192.237.211.170:8001 -H "Content-type: application/json" -d "{\"branch\": \"${TRAVIS_BRANCH}\", \"commit\": \"${TRAVIS_COMMIT}\", \"mysecret\": \"8H8#i*rsS)P1PUFomQAa\"}"'
+    - 'curl -sS http://192.237.217.53:8000 -H "Content-type: application/json" -d "{\"branch\": \"${TRAVIS_BRANCH}\", \"commit\": \"${TRAVIS_COMMIT}\"}"'
