@@ -1,0 +1,22 @@
+version = 1
+name = "Clone test"
+description = "One small Debian project with Postgres, to test the GitHub import."
+
+[[projects]]
+suffix = ""
+[projects.values]
+os = "debian"
+os_ver = 13
+cpu = 1
+mem = "2G"
+[projects.values.hooks]
+# v1 puts `git clone <repo> /srv/app` in front of these, so the code is
+# already there when they run.
+manager_create = [
+  "ls -la /srv/app > /root/clone-check.txt",
+]
+
+[[services]]
+suffix = "db"
+[services.values]
+drv = "pg"
